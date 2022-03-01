@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
+# from tkinter import font
 from converter import Converter
 
 conv = Converter()
@@ -9,7 +10,8 @@ conv = Converter()
 class WindowsGUI:
     def __init__(self):
         self.is_on = True
-        self.uft_encode = ""
+        """The encoding is set to allow future extensions to be compatible, font is kept as default for now"""
+        self.uft_encode = "utf-8"
         self.font = ""
         self.root = tk.Tk()
         self.temp_units = ['Celsius', 'Fahrenheit', 'Kelvin']
@@ -42,6 +44,10 @@ class WindowsGUI:
         self.user_value = ttk.Entry(self.unit_choices_labelframe)
         self.user_value_stored = 0.0
         self.converted_value = 0.0
+        self.canvas_window_frame = ttk.Frame(self.root)
+        self.logo_canvas = tk.Canvas(self.canvas_window_frame)
+        self.logo_img = tk.PhotoImage(file="Documents/placeholdLogo1.png")
+        self.s = ttk.Style()
 
     def convert_button_method(self):
         try:
@@ -121,6 +127,10 @@ class WindowsGUI:
         self.user_value.delete(0, 'end')
         return self.result_output
 
+    def style_widgets(self):
+        self.root.config(bg='#7fadf7')
+        self.s.configure('TLabelframe', background='#7fadf7', borderwidth=5, padding=5)
+
     def place_gui_elements(self):
         self.conversion_type_choice_labelframe.grid(column=0, row=0)
         self.temp_choice_button.grid(column=0, row=0)
@@ -141,6 +151,9 @@ class WindowsGUI:
         self.result_output.grid(column=1, row=4)
         self.convert_button.grid(column=1, row=3)
         self.reset_button.grid(column=0, row=3)
+        self.canvas_window_frame.grid(column=0, row=4, columnspan=2)
+        self.logo_canvas.grid(columnspan=2, column=0, row=5)
+        self.logo_canvas.create_image(0, 0, anchor='nw', image=self.logo_img)
 
     def initialise_gui_elements(self):
         self.temp_choice_button.config(command=self.show_temp_options)
@@ -153,9 +166,11 @@ class WindowsGUI:
 
     def display_gui(self):
         self.root.title("Converter Application")
-        self.root.geometry('400x400')
+        self.root.geometry('500x500')
+        # self.root.state('zoomed')
         self.root.resizable(True, True)
         self.root.columnconfigure(0, weight=1)
+        self.style_widgets()
         self.place_gui_elements()
         self.initialise_gui_elements()
         self.root.mainloop()
