@@ -15,38 +15,44 @@ class WindowsGUI:
         self.font = ""
         self.root = tk.Tk()
         self.temp_units = ['Celsius', 'Fahrenheit', 'Kelvin']
-        self.weight_units = ['Kilograms', 'Ounces']
+        self.weight_units = ['Kilograms', 'Ounces', 'Pounds']
+        self.distance_units = ['Miles', 'Nautical Miles', 'Yards', 'Feet', 'Kilometers', 'Hectometers', 'Deca-meters',
+                               'Meters', 'Decimeters', 'Centimeters', 'Millimeters', 'Micrometers',
+                               'Nanometers', 'Inches']
+        self.energy_units = ['Terajoule', 'Gigajoules', 'Megajoules', 'Kilojoules', 'Joules', 'Kilocalories',
+                             'Calories']
+        self.pressure_units = ['Atmospheres', 'Bars', 'Torr', 'Kilopascals', 'Pascals']
         self.conversion_choice = ""
-        self.conversion_type_choice_labelframe = ttk.Labelframe(self.root, text="Type Choice")
-        self.temp_choice_button = ttk.Button(self.conversion_type_choice_labelframe, text="Temperature")
-        self.weight_choice_button = ttk.Button(self.conversion_type_choice_labelframe, text="Weight")
-        self.distance_choice_button = ttk.Button(self.conversion_type_choice_labelframe, text="Distance")
-        self.energy_choice_button = ttk.Button(self.conversion_type_choice_labelframe, text="Energy")
-        self.force_choice_button = ttk.Button(self.conversion_type_choice_labelframe, text="Force")
-        self.unit_choices_labelframe = ttk.Labelframe(self.root, text="Choose Units")
+        self.conversion_type_choice_frame = ttk.Frame(self.root)
+        self.temp_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Temperature")
+        self.weight_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Weight")
+        self.distance_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Distance")
+        self.energy_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Energy")
+        self.pressure_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Pressure")
+        self.unit_choices_frame = ttk.Frame(self.root)
         self.from_unit = ""
-        self.first_unit_label = ttk.Label(self.unit_choices_labelframe, text="First Unit")
-        self.first_unit = ttk.Combobox(self.unit_choices_labelframe, values=[])
+        self.first_unit_label = ttk.Label(self.unit_choices_frame, text="First Unit")
+        self.first_unit = ttk.Combobox(self.unit_choices_frame, values=[])
         self.to_unit = ""
-        self.second_unit_label = ttk.Label(self.unit_choices_labelframe, text="Second Unit")
-        self.second_unit = ttk.Combobox(self.unit_choices_labelframe, values=[])
+        self.second_unit_label = ttk.Label(self.unit_choices_frame, text="Second Unit")
+        self.second_unit = ttk.Combobox(self.unit_choices_frame, values=[])
         self.starting_accuracy = tk.StringVar()
         self.starting_accuracy.set("1")
         self.accuracy = 1
-        self.choose_accuracy_label = ttk.Label(self.unit_choices_labelframe, text="Decimal places")
-        self.choose_accuracy = ttk.Spinbox(self.unit_choices_labelframe, increment=1, from_=1, to=6,
+        self.choose_accuracy_label = ttk.Label(self.unit_choices_frame, text="Decimal places")
+        self.choose_accuracy = ttk.Spinbox(self.unit_choices_frame, increment=1, from_=1, to=6,
                                            textvariable=self.starting_accuracy)
-        self.result_label = ttk.Label(self.unit_choices_labelframe, text="The result is..")
-        self.result_output = tk.Text(self.unit_choices_labelframe, height=1, width=10)
+        self.result_label = ttk.Label(self.unit_choices_frame, text="The result is..")
+        self.result_output = tk.Text(self.unit_choices_frame, height=1, width=15)
         self.convert_button = ttk.Button(self.root, text="Convert")
-        self.user_value_label = ttk.Label(self.unit_choices_labelframe, text="Enter Value")
+        self.user_value_label = ttk.Label(self.unit_choices_frame, text="Enter Value")
         self.reset_button = ttk.Button(self.root, text="Reset")
-        self.user_value = ttk.Entry(self.unit_choices_labelframe)
+        self.user_value = ttk.Entry(self.unit_choices_frame)
         self.user_value_stored = 0.0
         self.converted_value = 0.0
         self.canvas_window_frame = ttk.Frame(self.root)
         self.logo_canvas = tk.Canvas(self.canvas_window_frame)
-        self.logo_img = tk.PhotoImage(file="Documents/placeholdLogo1.png")
+        self.logo_img = tk.PhotoImage(file="Documents/place_holdLogo1.png")
         self.s = ttk.Style()
 
     def convert_button_method(self):
@@ -73,6 +79,88 @@ class WindowsGUI:
                 elif self.from_unit == 'Kelvin' and self.to_unit == 'Fahrenheit':
                     conv.user_value = self.user_value_stored
                     self.converted_value = conv.convert_kelvin_to_fahrenheit()
+                elif self.from_unit == 'Kilograms' and self.to_unit == 'Ounces':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilogram_to_ounces()
+                elif self.from_unit == 'Kilograms' and self.to_unit == 'Pounds':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilogram_to_pounds()
+                elif self.from_unit == 'Ounces' and self.to_unit == 'Kilograms':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_ounces_to_kilograms()
+                elif self.from_unit == 'Ounces' and self.to_unit == 'Pounds':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_ounces_to_pounds()
+                elif self.from_unit == 'Pounds' and self.to_unit == 'Kilograms':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_pounds_to_kilograms()
+                elif self.from_unit == 'Pounds' and self.to_unit == 'Ounces':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_pounds_to_ounces()
+                # distance
+                # energy
+                # Pressure
+                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Bars':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_atmospheres_to_bars()
+                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Torr':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_atmospheres_to_torr()
+                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Kilopascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_atmospheres_to_kilopascals()
+                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Pascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_atmospheres_to_pascals()
+                elif self.from_unit == 'Bars' and self.to_unit == 'Atmospheres':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_bars_to_atmospheres()
+                elif self.from_unit == 'Bars' and self.to_unit == 'Torr':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_bars_to_torr()
+                elif self.from_unit == 'Bars' and self.to_unit == 'Kilopascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_bars_to_kilopascals()
+                elif self.from_unit == 'Bars' and self.to_unit == 'Pascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_bars_to_pascals()
+                elif self.from_unit == 'Torr' and self.to_unit == 'Atmospheres':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_torr_to_atmospheres()
+                elif self.from_unit == 'Torr' and self.to_unit == 'Bars':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_torr_to_bars()
+                elif self.from_unit == 'Torr' and self.to_unit == 'Kilopascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_torr_to_kilopascals()
+                elif self.from_unit == 'Torr' and self.to_unit == 'Pascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_torr_to_pascals()
+                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Atmospheres':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilopascals_to_atmospheres()
+                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Bars':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilopascals_to_bars()
+                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Torr':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilopascals_to_torr()
+                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Pascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilopascals_to_pascals()
+                elif self.from_unit == 'Pascals' and self.to_unit == 'Atmospheres':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_pascals_to_atmospheres()
+                elif self.from_unit == 'Pascals' and self.to_unit == 'Bars':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_pascals_to_bars()
+                elif self.from_unit == 'Pascals' and self.to_unit == 'Torr':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_pascals_to_torr()
+                elif self.from_unit == 'Pascals' and self.to_unit == 'Kilopascals':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_pascals_to_kilopascals()
+
                 self.converted_value = round(self.converted_value, self.accuracy)
                 print(self.converted_value)
                 self.remove_error_highlights()
@@ -91,6 +179,10 @@ class WindowsGUI:
     def show_weight_options(self):
         self.first_unit.config(values=self.weight_units)
         self.second_unit.config(values=self.weight_units)
+
+    def show_pressure_options(self):
+        self.first_unit.config(values=self.pressure_units)
+        self.second_unit.config(values=self.pressure_units)
 
     def set_first_unit(self, event):
         self.from_unit = event.widget.get()
@@ -128,36 +220,38 @@ class WindowsGUI:
         return self.result_output
 
     def style_widgets(self):
-        self.root.config(bg='#7fadf7')
-        self.s.configure('TLabelframe', background='#7fadf7', borderwidth=5, padding=5)
+        self.root.config(bg="#7fadf7")
+        self.s.configure('TFrame', background='#7fadf7')
+        # self.s.configure('Button', bg=0)
 
     def place_gui_elements(self):
-        self.conversion_type_choice_labelframe.grid(column=0, row=0)
-        self.temp_choice_button.grid(column=0, row=0)
-        self.weight_choice_button.grid(column=0, row=1)
-        self.distance_choice_button.grid(column=0, row=2)
-        self.energy_choice_button.grid(column=0, row=3)
-        self.force_choice_button.grid(column=0, row=4)
-        self.unit_choices_labelframe.grid(column=1, row=0)
-        self.first_unit_label.grid(column=0, row=0)
-        self.first_unit.grid(column=1, row=0)
-        self.second_unit_label.grid(column=0, row=1)
-        self.second_unit.grid(column=1, row=1)
-        self.choose_accuracy_label.grid(column=0, row=2)
-        self.choose_accuracy.grid(column=1, row=2)
-        self.user_value_label.grid(column=0, row=3)
-        self.user_value.grid(column=1, row=3)
-        self.result_label.grid(column=0, row=4)
-        self.result_output.grid(column=1, row=4)
-        self.convert_button.grid(column=1, row=3)
-        self.reset_button.grid(column=0, row=3)
-        self.canvas_window_frame.grid(column=0, row=4, columnspan=2)
+        self.conversion_type_choice_frame.grid(column=0, row=0, pady=5, padx=5, ipady=5, ipadx=5)
+        self.temp_choice_button.grid(column=0, row=0, padx=1, pady=1)
+        self.weight_choice_button.grid(column=0, row=1, padx=1, pady=1)
+        self.distance_choice_button.grid(column=0, row=2, padx=1, pady=1)
+        self.energy_choice_button.grid(column=0, row=3, padx=1, pady=1)
+        self.pressure_choice_button.grid(column=1, row=0, padx=1, pady=1)
+        self.unit_choices_frame.grid(column=1, row=0, pady=5, padx=5, ipady=5, ipadx=5)
+        self.first_unit_label.grid(column=0, row=0, sticky="w", padx=5, pady=1)
+        self.first_unit.grid(column=1, row=0, pady=1)
+        self.second_unit_label.grid(column=0, row=1, sticky="w", padx=5, pady=1)
+        self.second_unit.grid(column=1, row=1, sticky="w", pady=1)
+        self.choose_accuracy_label.grid(column=0, row=2, padx=5, pady=1)
+        self.choose_accuracy.grid(column=1, row=2, sticky="w", pady=1)
+        self.user_value_label.grid(column=0, row=3, sticky="w", padx=5, pady=1)
+        self.user_value.grid(column=1, row=3, sticky="w", pady=1)
+        self.result_label.grid(column=0, row=4, sticky="w", padx=5, pady=1)
+        self.result_output.grid(column=1, row=4, sticky="w", pady=1)
+        self.convert_button.grid(column=1, row=3, pady=5, padx=5, ipady=5, ipadx=5)
+        self.reset_button.grid(column=0, row=3, pady=5, padx=5, ipady=5, ipadx=5)
+        self.canvas_window_frame.grid(column=0, row=4, columnspan=2, pady=5, padx=5, ipady=5, ipadx=5)
         self.logo_canvas.grid(columnspan=2, column=0, row=5)
         self.logo_canvas.create_image(0, 0, anchor='nw', image=self.logo_img)
 
     def initialise_gui_elements(self):
         self.temp_choice_button.config(command=self.show_temp_options)
         self.weight_choice_button.config(command=self.show_weight_options)
+        self.pressure_choice_button.config(command=self.show_pressure_options())
         self.convert_button.config(command=self.convert_button_method)
         self.first_unit.bind("<<ComboboxSelected>>", self.set_first_unit)
         self.second_unit.bind("<<ComboboxSelected>>", self.set_second_unit)
@@ -168,7 +262,7 @@ class WindowsGUI:
         self.root.title("Converter Application")
         self.root.geometry('500x500')
         # self.root.state('zoomed')
-        self.root.resizable(True, True)
+        self.root.resizable(False, False)
         self.root.columnconfigure(0, weight=1)
         self.style_widgets()
         self.place_gui_elements()
