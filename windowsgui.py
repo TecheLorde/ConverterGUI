@@ -26,8 +26,8 @@ class WindowsGUI:
         self.conversion_type_choice_frame = ttk.Frame(self.root)
         self.temp_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Temperature")
         self.weight_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Weight")
-        self.distance_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Distance")
-        self.energy_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Energy")
+        self.distance_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Distance", state='disabled')
+        self.energy_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Energy", state='disabled')
         self.pressure_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Pressure")
         self.unit_choices_frame = ttk.Frame(self.root)
         self.from_unit = ""
@@ -52,7 +52,7 @@ class WindowsGUI:
         self.converted_value = 0.0
         self.canvas_window_frame = ttk.Frame(self.root)
         self.logo_canvas = tk.Canvas(self.canvas_window_frame)
-        self.logo_img = tk.PhotoImage(file="Documents/place_holdLogo1.png")
+        self.logo_img = tk.PhotoImage(file="Documents/FinalGuiLogo.png")
         self.s = ttk.Style()
 
     def convert_button_method(self):
@@ -99,7 +99,6 @@ class WindowsGUI:
                     self.converted_value = conv.convert_pounds_to_ounces()
                 # distance
                 # energy
-                # Pressure
                 elif self.from_unit == 'Atmospheres' and self.to_unit == 'Bars':
                     conv.user_value = self.user_value_stored
                     self.converted_value = conv.convert_atmospheres_to_bars()
@@ -222,7 +221,6 @@ class WindowsGUI:
     def style_widgets(self):
         self.root.config(bg="#7fadf7")
         self.s.configure('TFrame', background='#7fadf7')
-        # self.s.configure('Button', bg=0)
 
     def place_gui_elements(self):
         self.conversion_type_choice_frame.grid(column=0, row=0, pady=5, padx=5, ipady=5, ipadx=5)
@@ -257,6 +255,7 @@ class WindowsGUI:
         self.second_unit.bind("<<ComboboxSelected>>", self.set_second_unit)
         self.choose_accuracy.config(command=self.get_accuracy)
         self.reset_button.config(command=self.reset_function)
+        self.logo_canvas.config(width=300, height=300, bd=0)
 
     def display_gui(self):
         self.root.title("Converter Application")
