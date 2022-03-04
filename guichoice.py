@@ -1,7 +1,9 @@
 import platform
 from windowsgui import WindowsGUI
-import pandas
+from linuxgui import LinuxGUI
+# import pandas
 win_gui = WindowsGUI()
+lin_gui = LinuxGUI()
 
 
 class GuiChoice:
@@ -28,3 +30,9 @@ class GuiChoice:
         win_gui.display_gui()
         self.gui_selection = ""
         return win_gui
+
+    def call_linux_gui(self):
+        self.gui_selection = "Linux"
+        lin_gui.display_gui()
+        self.gui_selection = ""
+        return lin_gui
