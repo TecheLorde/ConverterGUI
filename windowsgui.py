@@ -52,8 +52,7 @@ class WindowsGUI:
         self.converted_value = 0.0
         self.canvas_window_frame = ttk.Frame(self.root)
         self.logo_canvas = tk.Canvas(self.canvas_window_frame)
-        self.logo_file_path = r"Documents/FinalGuiLogo.png"
-        self.logo_img = tk.PhotoImage(file=self.logo_file_path)
+        self.logo_img = tk.PhotoImage(file=r"Documents/FinalGuiLogo.png")
         self.s = ttk.Style()
 
     def convert_button_method(self):
