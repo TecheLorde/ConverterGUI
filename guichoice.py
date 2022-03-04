@@ -1,5 +1,6 @@
 import platform
 from windowsgui import WindowsGUI
+import pandas
 win_gui = WindowsGUI()
 
 
