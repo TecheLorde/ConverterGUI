@@ -6,10 +6,12 @@ try:
     if gui_c.operating_system == "Windows":
         version = gui_c.get_os_version()
         if version == '10' or version == '8.1' or version == '8' or version == '7':
+            print("Windows")
             gui_c.call_windows_gui()
         else:
             messagebox.showerror(title="Incorrect Version", message="The application works on windows 7, 8, 8.1 and 10")
     elif gui_c.operating_system == "Linux":
+        print("Linux")
         gui_c.call_linux_gui()
 
 except RuntimeError:
