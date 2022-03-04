@@ -1,6 +1,7 @@
 import platform
 from windowsgui import WindowsGUI
 from linuxgui import LinuxGUI
+from macgui import MacGUI
 # import pandas
 
 
@@ -33,4 +34,10 @@ class GuiChoice:
         self.gui_selection = "Linux"
         lin_gui = LinuxGUI()
         lin_gui.display_gui()
+        return self.gui_selection
+
+    def call_mac_gui(self):
+        self.gui_selection = "Linux"
+        mac_gui = MacGUI()
+        mac_gui.display_gui()
         return self.gui_selection
