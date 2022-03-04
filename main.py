@@ -13,6 +13,9 @@ try:
     elif gui_c.operating_system == "Linux":
         print("Linux")
         gui_c.call_linux_gui()
-
+    elif gui_c.operating_system == "Macintosh":
+        print("Mac")
+        gui_c.call_mac_gui()
 except RuntimeError:
     print("Something went wrong, contact support")
+    messagebox.showerror(title="Error", message="Contact Support")
