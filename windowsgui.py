@@ -614,7 +614,7 @@ class WindowsGUI:
     def remove_error_highlights(self):
         self.user_value.config(foreground="")
         self.first_unit.config(foreground="")
-        return self.user_value
+        return self.user_value, self.first_unit
 
     def reset_function(self):
         self.get_accuracy()
