@@ -16,18 +16,17 @@ class LinuxGUI:
         self.root = tk.Tk()
         self.temp_units = ['Celsius', 'Fahrenheit', 'Kelvin']
         self.weight_units = ['Kilograms', 'Ounces', 'Pounds']
-        self.distance_units = ['Miles', 'Nautical Miles', 'Yards', 'Feet', 'Kilometers', 'Hectometers', 'Deca-meters',
-                               'Meters', 'Decimeters', 'Centimeters', 'Millimeters', 'Micrometers',
-                               'Nanometers', 'Inches']
-        self.energy_units = ['Terajoule', 'Gigajoules', 'Megajoules', 'Kilojoules', 'Joules', 'Kilocalories',
+        self.distance_units = ['Miles', 'Nautical Miles', 'Yards', 'Feet', 'Kilometers', 'Hectometers', 'Meters',
+                               'Centimeters', 'Millimeters', 'Inches']
+        self.energy_units = ['Terajoules', 'Gigajoules', 'Megajoules', 'Kilojoules', 'Joules', 'Kilocalories',
                              'Calories']
         self.pressure_units = ['Atmospheres', 'Bars', 'Torr', 'Kilopascals', 'Pascals']
         self.conversion_choice = ""
         self.conversion_type_choice_frame = ttk.Frame(self.root)
         self.temp_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Temperature")
         self.weight_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Weight")
-        self.distance_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Distance", state='disabled')
-        self.energy_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Energy", state='disabled')
+        self.distance_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Distance")
+        self.energy_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Energy")
         self.pressure_choice_button = ttk.Button(self.conversion_type_choice_frame, text="Pressure")
         self.unit_choices_frame = ttk.Frame(self.root)
         self.from_unit = ""
@@ -52,15 +51,14 @@ class LinuxGUI:
         self.converted_value = 0.0
         self.canvas_window_frame = ttk.Frame(self.root)
         self.logo_canvas = tk.Canvas(self.canvas_window_frame)
-        self.logo_file_path = r"Documents/FinalGuiLogo.png"
-        self.logo_img = tk.PhotoImage(file=self.logo_file_path)
+        self.logo_img = tk.PhotoImage(file=r"Documents/FinalGuiLogo.png")
         self.s = ttk.Style()
 
     def convert_button_method(self):
         try:
             self.user_value_stored = float(self.user_value.get())
             self.check_user_inputs()
-            if -1000001 < self.user_value_stored < 1000001:
+            if -9000001 < self.user_value_stored < 9000001:
                 self.result_output.delete('1.0', 'end')
                 if self.from_unit == 'Celsius' and self.to_unit == 'Fahrenheit':
                     conv.user_value = self.user_value_stored
@@ -98,8 +96,273 @@ class LinuxGUI:
                 elif self.from_unit == 'Pounds' and self.to_unit == 'Ounces':
                     conv.user_value = self.user_value_stored
                     self.converted_value = conv.convert_pounds_to_ounces()
-                # distance
-                # energy
+                elif self.from_unit == 'Miles' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_nautical_miles()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_yards()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_feet()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_kilometers()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_hectometers()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_meters()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_centimeters()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_millimeters()
+                elif self.from_unit == 'Miles' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_miles_to_inches()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_miles()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_yards()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_feet()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_kilometers()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_hectometers()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_meters()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_centimeters()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_millimeters()
+                elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_nautical_miles_to_inches()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_miles()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_nautical_miles()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_feet()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_kilometers()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_hectometers()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_meters()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_centimeters()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_millimeters()
+                elif self.from_unit == 'Yards' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_yards_to_inches()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_miles()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_nautical_miles()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_yards()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_kilometers()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_hectometers()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_meters()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_centimeters()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_millimeters()
+                elif self.from_unit == 'Feet' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_feet_to_inches()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_miles()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_nautical_miles()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_yards()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_hectometers()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_meters()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_centimeters()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_millimeters()
+                elif self.from_unit == 'Kilometers' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilometers_to_inches()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_miles()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_nautical_miles()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_yards()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_yards()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_kilometers()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_meters()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_centimeters()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_millimeters()
+                elif self.from_unit == 'Hectometers' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_hectometers_to_inches()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_miles()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_nautical_miles()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_yards()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_feet()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_kilometers()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_hectometers()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_centimeters()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_millimeters()
+                elif self.from_unit == 'Meters' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_meters_to_inches()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_miles()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_nautical_miles()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_yards()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_feet()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_kilometers()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_hectometers()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_meters()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_millimeters()
+                elif self.from_unit == 'Centimeters' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_centimeters_to_inches()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_miles()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_nautical_miles()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_yards()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_feet()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_kilometers()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_hectometers()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_meters()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_centimeters()
+                elif self.from_unit == 'Millimeters' and self.to_unit == 'Inches':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_millimeters_to_inches()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_miles()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Nautical Miles':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_nautical_miles()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Yards':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_yards()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Feet':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_feet()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Kilometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_kilometers()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Hectometers':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_hectometers()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Meters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_meters()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Centimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_centimeters()
+                elif self.from_unit == 'Inches' and self.to_unit == 'Millimeters':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_inches_to_millimeters()
                 elif self.from_unit == 'Atmospheres' and self.to_unit == 'Bars':
                     conv.user_value = self.user_value_stored
                     self.converted_value = conv.convert_atmospheres_to_bars()
@@ -160,7 +423,132 @@ class LinuxGUI:
                 elif self.from_unit == 'Pascals' and self.to_unit == 'Kilopascals':
                     conv.user_value = self.user_value_stored
                     self.converted_value = conv.convert_pascals_to_kilopascals()
-
+                elif self.from_unit == 'Terajoules' and self.to_unit == 'Gigajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_terajoules_to_gigajoules()
+                elif self.from_unit == 'Terajoules' and self.to_unit == 'Megajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_terajoules_to_megajoules()
+                elif self.from_unit == 'Terajoules' and self.to_unit == 'Kilojoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_terajoules_to_kilojoules()
+                elif self.from_unit == 'Terajoules' and self.to_unit == 'Joules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_terajoules_to_joules()
+                elif self.from_unit == 'Terajoules' and self.to_unit == 'Kilocalories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_terajoules_to_kilocalories()
+                elif self.from_unit == 'Terajoules' and self.to_unit == 'Calories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_terajoules_to_calories()
+                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Terajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_gigajoules_to_terajoules()
+                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Megajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_gigajoules_to_megajoules()
+                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Kilojoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_gigajoules_to_kilojoules()
+                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Joules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_gigajoules_to_joules()
+                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Kilocalories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_gigajoules_to_kilocalories()
+                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Calories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_gigajoules_to_calories()
+                elif self.from_unit == 'Megajoules' and self.to_unit == 'Terajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_megajoules_to_terajoules()
+                elif self.from_unit == 'Megajoules' and self.to_unit == 'Gigajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_megajoules_to_gigajoules()
+                elif self.from_unit == 'Megajoules' and self.to_unit == 'Kilojoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_megajoules_to_kilojoules()
+                elif self.from_unit == 'Megajoules' and self.to_unit == 'Joules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_megajoules_to_joules()
+                elif self.from_unit == 'Megajoules' and self.to_unit == 'Kilocalories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_megajoules_to_kilocalories()
+                elif self.from_unit == 'Megajoules' and self.to_unit == 'Calories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_megajoules_to_calories()
+                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Terajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilojoules_to_terajoules()
+                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Gigajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilojoules_to_gigajoules()
+                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Megajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilojoules_to_megajoules()
+                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Joules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilojoules_to_joules()
+                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Kilocalories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilojoules_to_kilocalories()
+                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Calories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilojoules_to_calories()
+                elif self.from_unit == 'Joules' and self.to_unit == 'Terajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_joules_to_terajoules()
+                elif self.from_unit == 'Joules' and self.to_unit == 'Gigajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_joules_to_gigajoules()
+                elif self.from_unit == 'Joules' and self.to_unit == 'Megajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_joules_to_megajoules()
+                elif self.from_unit == 'Joules' and self.to_unit == 'Kilojoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_joules_to_kilojoules()
+                elif self.from_unit == 'Joules' and self.to_unit == 'Kilocalories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_joules_to_kilocalories()
+                elif self.from_unit == 'Joules' and self.to_unit == 'Calories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_joules_to_calories()
+                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Terajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilocalories_to_terajoules()
+                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Gigajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilocalories_to_gigajoules()
+                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Megajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilocalories_to_megajoules()
+                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Kilojoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilocalories_to_kilojoules()
+                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Joules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilocalories_to_joules()
+                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Calories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_kilocalories_to_calories()
+                elif self.from_unit == 'Calories' and self.to_unit == 'Terajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_calories_to_terajoules()
+                elif self.from_unit == 'Calories' and self.to_unit == 'Gigajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_calories_to_gigajoules()
+                elif self.from_unit == 'Calories' and self.to_unit == 'Megajoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_calories_to_megajoules()
+                elif self.from_unit == 'Calories' and self.to_unit == 'Kilojoules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_calories_to_kilojoules()
+                elif self.from_unit == 'Calories' and self.to_unit == 'Joules':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_calories_to_joules()
+                elif self.from_unit == 'Calories' and self.to_unit == 'Kilocalories':
+                    conv.user_value = self.user_value_stored
+                    self.converted_value = conv.convert_calories_to_kilocalories()
                 self.converted_value = round(self.converted_value, self.accuracy)
                 print(self.converted_value)
                 self.remove_error_highlights()
@@ -180,6 +568,14 @@ class LinuxGUI:
         self.first_unit.config(values=self.weight_units)
         self.second_unit.config(values=self.weight_units)
 
+    def show_energy_options(self):
+        self.first_unit.config(values=self.energy_units)
+        self.second_unit.config(values=self.energy_units)
+
+    def show_distance_options(self):
+        self.first_unit.config(values=self.distance_units)
+        self.second_unit.config(values=self.distance_units)
+
     def show_pressure_options(self):
         self.first_unit.config(values=self.pressure_units)
         self.second_unit.config(values=self.pressure_units)
@@ -198,16 +594,26 @@ class LinuxGUI:
         return self.accuracy
 
     def check_user_inputs(self):
-        self.user_value.config(foreground="red")
-        if -1000000 > self.user_value_stored > 1000000:
+        if self.user_value_stored > 9000001:
             self.user_value.config(foreground="red")
-            messagebox.showerror("Error", message="Enter a number", detail="Enter a number from"
-                                                                           " -1,000,000 to 1,000,000")
+            messagebox.showerror(title="Error", message="value is too high", detail="Enter a number from -9,000,000 to"
+                                                                                    " 9,000,000")
+        if self.user_value_stored < -9000001:
+            self.user_value.config(foreground="red")
+            messagebox.showerror(title="Error", message="value is too low", detail="Enter a number from -9,000,000 to"
+                                                                                   " 9,000,000")
+        if self.user_value_stored == 0:
+            self.user_value.config(foreground="red")
+            messagebox.showerror(title="Error", message="Enter a numerical value")
         if self.from_unit == "" or self.to_unit == "":
             messagebox.showerror(title="Error", message="Select conversion units!")
+        if self.from_unit == self.to_unit:
+            self.first_unit.config(foreground="red")
+            messagebox.showerror(title="Error", message="Conversion units are identical")
 
     def remove_error_highlights(self):
         self.user_value.config(foreground="")
+        self.first_unit.config(foreground="")
         return self.user_value
 
     def reset_function(self):
@@ -250,7 +656,9 @@ class LinuxGUI:
     def initialise_gui_elements(self):
         self.temp_choice_button.config(command=self.show_temp_options)
         self.weight_choice_button.config(command=self.show_weight_options)
-        self.pressure_choice_button.config(command=self.show_pressure_options())
+        self.distance_choice_button.config(command=self.show_distance_options)
+        self.energy_choice_button.config(command=self.show_energy_options)
+        self.pressure_choice_button.config(command=self.show_pressure_options)
         self.convert_button.config(command=self.convert_button_method)
         self.first_unit.bind("<<ComboboxSelected>>", self.set_first_unit)
         self.second_unit.bind("<<ComboboxSelected>>", self.set_second_unit)
