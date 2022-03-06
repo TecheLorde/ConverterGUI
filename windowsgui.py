@@ -58,7 +58,7 @@ class WindowsGUI:
         try:
             self.user_value_stored = float(self.user_value.get())
             self.check_user_inputs()
-            if -1000001 < self.user_value_stored < 1000001:
+            if -9000001 < self.user_value_stored < 9000001:
                 self.result_output.delete('1.0', 'end')
                 if self.from_unit == 'Celsius' and self.to_unit == 'Fahrenheit':
                     conv.user_value = self.user_value_stored
@@ -594,16 +594,26 @@ class WindowsGUI:
         return self.accuracy
 
     def check_user_inputs(self):
-        self.user_value.config(foreground="red")
-        if -1000000 > self.user_value_stored > 1000000:
+        if self.user_value_stored > 9000001:
             self.user_value.config(foreground="red")
-            messagebox.showerror("Error", message="Enter a number", detail="Enter a number from"
-                                                                           " -1,000,000 to 1,000,000")
+            messagebox.showerror(title="Error", message="value is too high", detail="Enter a number from -9,000,000 to"
+                                                                                    " 9,000,000")
+        if self.user_value_stored < -9000001:
+            self.user_value.config(foreground="red")
+            messagebox.showerror(title="Error", message="value is too low", detail="Enter a number from -9,000,000 to"
+                                                                                   " 9,000,000")
+        if self.user_value_stored == 0:
+            self.user_value.config(foreground="red")
+            messagebox.showerror(title="Error", message="Enter a numerical value")
         if self.from_unit == "" or self.to_unit == "":
             messagebox.showerror(title="Error", message="Select conversion units!")
+        if self.from_unit == self.to_unit:
+            self.first_unit.config(foreground="red")
+            messagebox.showerror(title="Error", message="Conversion units are identical")
 
     def remove_error_highlights(self):
         self.user_value.config(foreground="")
+        self.first_unit.config(foreground="")
         return self.user_value
 
     def reset_function(self):
