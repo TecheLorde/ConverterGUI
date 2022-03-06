@@ -289,6 +289,14 @@ class Converter:
         self.converted_value = self.user_value / 0.3048
         return self.converted_value
 
+    def convert_meters_to_kilometers(self):
+        self.converted_value = self.user_value / 1000
+        return self.converted_value
+
+    def convert_meters_to_hectometers(self):
+        self.converted_value = self.user_value / 100
+        return self.converted_value
+
     def convert_meters_to_centimeters(self):
         self.converted_value = self.user_value * 100
         return self.converted_value
