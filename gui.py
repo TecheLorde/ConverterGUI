@@ -8,7 +8,7 @@ from converter import Converter
 conv = Converter()
 
 
-class WindowsGUI:
+class GUI:
     def __init__(self):
         self.is_on = True
         """The encoding is set to allow future extensions to be compatible, font is kept as default for now"""
@@ -592,7 +592,6 @@ class WindowsGUI:
 
     def get_accuracy(self):
         self.accuracy = int(self.choose_accuracy.get())
-        print(self.accuracy)
         return self.accuracy
 
     def check_user_inputs(self):
@@ -671,7 +670,6 @@ class WindowsGUI:
     def display_gui(self):
         self.root.title("Converter Application")
         self.root.geometry('500x500')
-        # self.root.state('zoomed')
         self.root.resizable(False, False)
         self.root.columnconfigure(0, weight=1)
         self.style_widgets()
