@@ -1,3 +1,4 @@
+"""Main"""
 from guichoice import GuiChoice
 from tkinter import messagebox
 gui_c = GuiChoice()

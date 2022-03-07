@@ -1,3 +1,4 @@
+"""Displays GUI on macOS systems"""
 # noinspection DuplicatedCode
 import tkinter as tk
 from tkinter import messagebox

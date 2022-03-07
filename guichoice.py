@@ -1,3 +1,4 @@
+"""Detects operating system and displays appropriate GUI"""
 import platform
 from windowsgui import WindowsGUI
 from linuxgui import LinuxGUI

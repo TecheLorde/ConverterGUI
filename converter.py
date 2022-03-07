@@ -1,3 +1,6 @@
+"""Converts units from on type to another"""
+
+
 class Converter:
     def __init__(self):
         self.first_unit = ""
