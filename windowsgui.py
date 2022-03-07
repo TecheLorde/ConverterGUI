@@ -14,6 +14,7 @@ class WindowsGUI:
         self.uft_encode = "utf-8"
         self.font = ""
         self.root = tk.Tk()
+        self.root.iconbitmap(r"Documents/Icon.ico")
         self.temp_units = ['Celsius', 'Fahrenheit', 'Kelvin']
         self.weight_units = ['Kilograms', 'Ounces', 'Pounds']
         self.distance_units = ['Miles', 'Nautical Miles', 'Yards', 'Feet', 'Kilometers', 'Hectometers', 'Meters',
