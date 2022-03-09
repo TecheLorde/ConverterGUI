@@ -1,5 +1,39 @@
 """Converts units from on type to another"""
 
+class Temperature:
+    """Temperature conversion methods"""
+    units = ['Celsius', 'Fahrenheit', 'Kelvin']
+
+    @staticmethod
+    def convert_celsius_to_fahrenheit(user_value):
+        converted_value = user_value * 9 / 5 + 32
+        return converted_value
+
+    @staticmethod
+    def convert_celsius_to_kelvin(user_value):
+        converted_value = user_value + 273.15
+        return converted_value
+
+    @staticmethod
+    def convert_fahrenheit_to_celsius(user_value):
+        converted_value = (user_value - 32) * 5 / 9
+        return converted_value
+
+    @staticmethod
+    def convert_fahrenheit_to_kelvin(user_value):
+        converted_value = (user_value - 32) * 5 / 9 + 273.15
+        return converted_value
+
+    @staticmethod
+    def convert_kelvin_to_celsius(user_value):
+        converted_value = user_value - 273.15
+        return converted_value
+
+    @staticmethod
+    def convert_kelvin_to_fahrenheit(user_value):
+        converted_value = (user_value - 273.15) * 9/5 + 32
+        return converted_value
+
 
 class Converter:
     user_value = 0.0
@@ -8,37 +42,6 @@ class Converter:
     def __init__(self):
         self.accuracy = 1
 
-    """Temperature conversion methods"""
-
-    @classmethod
-    def convert_celsius_to_fahrenheit(cls, user_value):
-        converted_value = user_value * 9 / 5 + 32
-        return converted_value
-
-    @classmethod
-    def convert_celsius_to_kelvin(cls, user_value):
-        converted_value = user_value + 273.15
-        return converted_value
-
-    @classmethod
-    def convert_fahrenheit_to_celsius(cls, user_value):
-        converted_value = (user_value - 32) * 5 / 9
-        return converted_value
-
-    @classmethod
-    def convert_fahrenheit_to_kelvin(cls, user_value):
-        converted_value = (user_value - 32) * 5 / 9 + 273.15
-        return converted_value
-
-    @classmethod
-    def convert_kelvin_to_celsius(cls, user_value):
-        converted_value = user_value - 273.15
-        return converted_value
-
-    @classmethod
-    def convert_kelvin_to_fahrenheit(cls, user_value):
-        converted_value = (user_value - 273.15) * 9/5 + 32
-        return converted_value
 
     """Weight Conversion Methods"""
     @classmethod

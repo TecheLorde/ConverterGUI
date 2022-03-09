@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 # from tkinter import font
-from converter import Converter
+from converter import Converter, Temperature
 
 
 class GUI:
@@ -14,7 +14,6 @@ class GUI:
         self.font = ""
         self.root = tk.Tk()
         self.root.iconbitmap(r"Documents/Icon.ico")
-        self.temp_units = ['Celsius', 'Fahrenheit', 'Kelvin']
         self.weight_units = ['Kilograms', 'Ounces', 'Pounds']
         self.distance_units = ['Miles', 'Nautical Miles', 'Yards', 'Feet', 'Kilometers', 'Hectometers', 'Meters',
                                'Centimeters', 'Millimeters', 'Inches']
@@ -60,18 +59,20 @@ class GUI:
             self.check_user_inputs()
             if -9000001 < self.user_value_stored < 9000001:
                 self.result_output.delete('1.0', 'end')
+
                 if self.from_unit == 'Celsius' and self.to_unit == 'Fahrenheit':
-                    self.converted_value = Converter.convert_celsius_to_fahrenheit(self.user_value_stored)
+                    self.converted_value = Temperature.convert_celsius_to_fahrenheit(self.user_value_stored)
                 elif self.from_unit == 'Celsius' and self.to_unit == 'Kelvin':
-                    self.converted_value = Converter.convert_celsius_to_kelvin(self.user_value_stored)
+                    self.converted_value = Temperature.convert_celsius_to_kelvin(self.user_value_stored)
                 elif self.from_unit == 'Fahrenheit' and self.to_unit == 'Celsius':
-                    self.converted_value = Converter.convert_fahrenheit_to_celsius(self.user_value_stored)
+                    self.converted_value = Temperature.convert_fahrenheit_to_celsius(self.user_value_stored)
                 elif self.from_unit == 'Fahrenheit' and self.to_unit == 'Kelvin':
-                    self.converted_value = Converter.convert_fahrenheit_to_kelvin(self.user_value_stored)
+                    self.converted_value = Temperature.convert_fahrenheit_to_kelvin(self.user_value_stored)
                 elif self.from_unit == 'Kelvin' and self.to_unit == 'Celsius':
-                    self.converted_value = Converter.convert_kelvin_to_celsius(self.user_value_stored)
+                    self.converted_value = Temperature.convert_kelvin_to_celsius(self.user_value_stored)
                 elif self.from_unit == 'Kelvin' and self.to_unit == 'Fahrenheit':
-                    self.converted_value = Converter.convert_kelvin_to_fahrenheit(self.user_value_stored)
+                    self.converted_value = Temperature.convert_kelvin_to_fahrenheit(self.user_value_stored)
+
                 elif self.from_unit == 'Kilograms' and self.to_unit == 'Ounces':
                     self.converted_value = Converter.convert_kilogram_to_ounces(self.user_value_stored)
                 elif self.from_unit == 'Kilograms' and self.to_unit == 'Pounds':
@@ -478,8 +479,8 @@ class GUI:
         return self.converted_value
 
     def show_temp_options(self):
-        self.first_unit.config(values=self.temp_units)
-        self.second_unit.config(values=self.temp_units)
+        self.first_unit.config(values=Temperature.units)
+        self.second_unit.config(values=Temperature.units)
 
     def show_weight_options(self):
         self.first_unit.config(values=self.weight_units)
