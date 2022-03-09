@@ -7,28 +7,28 @@ class Temperature:
     units = ['Celsius', 'Fahrenheit', 'Kelvin']
 
     @staticmethod
-    def convert_celsius_to_fahrenheit(user_value):
-        return user_value * 9 / 5 + 32
+    def convert_celsius_to_fahrenheit(value):
+        return value * 9 / 5 + 32
 
     @staticmethod
-    def convert_celsius_to_kelvin(user_value):
-        return user_value + 273.15
+    def convert_celsius_to_kelvin(value):
+        return value + 273.15
 
     @staticmethod
-    def convert_fahrenheit_to_celsius(user_value):
-        return (user_value - 32) * 5 / 9
+    def convert_fahrenheit_to_celsius(value):
+        return (value - 32) * 5 / 9
 
     @staticmethod
-    def convert_fahrenheit_to_kelvin(user_value):
-        return (user_value - 32) * 5 / 9 + 273.15
+    def convert_fahrenheit_to_kelvin(value):
+        return (value - 32) * 5 / 9 + 273.15
 
     @staticmethod
-    def convert_kelvin_to_celsius(user_value):
-        return user_value - 273.15
+    def convert_kelvin_to_celsius(value):
+        return value - 273.15
 
     @staticmethod
-    def convert_kelvin_to_fahrenheit(user_value):
-        return (user_value - 273.15) * 9/5 + 32
+    def convert_kelvin_to_fahrenheit(value):
+        return (value - 273.15) * 9/5 + 32
 
     @classmethod
     def convert_temperature(cls, source: str, target: str, value: float) -> Optional[float]:
