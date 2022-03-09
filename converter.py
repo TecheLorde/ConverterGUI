@@ -1,5 +1,7 @@
 """Converts units from on type to another"""
 
+from typing import Optional
+
 class Temperature:
     """Temperature conversion methods"""
     units = ['Celsius', 'Fahrenheit', 'Kelvin']
@@ -33,6 +35,24 @@ class Temperature:
     def convert_kelvin_to_fahrenheit(user_value):
         converted_value = (user_value - 273.15) * 9/5 + 32
         return converted_value
+
+    @classmethod
+    def convert_temperature(cls, source: str, target: str, value: float) -> Optional[float]:
+        source = source.lower()
+        target = target.lower()
+
+        combinations = [
+            (j1.lower(), j2.lower())
+            for j1 in cls.units
+            for j2 in cls.units
+            if j1 != j2
+        ]
+
+        converter = getattr(cls, f'convert_{source}_to_{target}')
+        if ((source, target) in combinations and converter != None):
+            return converter(value)
+
+        return None
 
 
 class Converter:

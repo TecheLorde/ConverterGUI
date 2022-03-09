@@ -60,20 +60,12 @@ class GUI:
             if -9000001 < self.user_value_stored < 9000001:
                 self.result_output.delete('1.0', 'end')
 
-                if self.from_unit == 'Celsius' and self.to_unit == 'Fahrenheit':
-                    self.converted_value = Temperature.convert_celsius_to_fahrenheit(self.user_value_stored)
-                elif self.from_unit == 'Celsius' and self.to_unit == 'Kelvin':
-                    self.converted_value = Temperature.convert_celsius_to_kelvin(self.user_value_stored)
-                elif self.from_unit == 'Fahrenheit' and self.to_unit == 'Celsius':
-                    self.converted_value = Temperature.convert_fahrenheit_to_celsius(self.user_value_stored)
-                elif self.from_unit == 'Fahrenheit' and self.to_unit == 'Kelvin':
-                    self.converted_value = Temperature.convert_fahrenheit_to_kelvin(self.user_value_stored)
-                elif self.from_unit == 'Kelvin' and self.to_unit == 'Celsius':
-                    self.converted_value = Temperature.convert_kelvin_to_celsius(self.user_value_stored)
-                elif self.from_unit == 'Kelvin' and self.to_unit == 'Fahrenheit':
-                    self.converted_value = Temperature.convert_kelvin_to_fahrenheit(self.user_value_stored)
+                if value := Temperature.convert_temperature(
+                    self.from_unit, self.to_unit, self.user_value_stored
+                ):
+                    self.converted_value = value
 
-                elif self.from_unit == 'Kilograms' and self.to_unit == 'Ounces':
+                if self.from_unit == 'Kilograms' and self.to_unit == 'Ounces':
                     self.converted_value = Converter.convert_kilogram_to_ounces(self.user_value_stored)
                 elif self.from_unit == 'Kilograms' and self.to_unit == 'Pounds':
                     self.converted_value = Converter.convert_kilograms_to_pounds(self.user_value_stored)
