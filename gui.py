@@ -105,244 +105,164 @@ class GUI:
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Miles':
                     self.converted_value = Converter.convert_nautical_miles_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Feet':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_feet(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Nautical Miles' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_nautical_miles_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Feet':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_feet(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Yards' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_yards_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Feet' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_feet_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Kilometers' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_kilometers_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Feet':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Hectometers' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_hectometers_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Feet':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_feet(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Meters' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_meters_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Feet':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_feet(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Centimeters' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_centimeters_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Feet':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_feet(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Millimeters' and self.to_unit == 'Inches':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_millimeters_to_inches(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_miles(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Nautical Miles':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_nautical_miles(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Yards':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_yards(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Feet':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_feet(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Kilometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_kilometers(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Hectometers':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_hectometers(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Meters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_meters(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Centimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_centimeters(self.user_value_stored)
                 elif self.from_unit == 'Inches' and self.to_unit == 'Millimeters':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_inches_to_millimeters(self.user_value_stored)
                 elif self.from_unit == 'Atmospheres' and self.to_unit == 'Bars':
-                    Converter.user_value = self.user_value_stored
                     self.converted_value = Converter.convert_atmospheres_to_bars(self.user_value_stored)
                 elif self.from_unit == 'Atmospheres' and self.to_unit == 'Torr':
                     self.converted_value = Converter.convert_atmospheres_to_torr(self.user_value_stored)
