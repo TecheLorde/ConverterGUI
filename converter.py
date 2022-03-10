@@ -1,73 +1,178 @@
-"""Converts units from on type to another"""
+from typing import Optional
+
+"""These classes convert different types of units"""
+
+
+class Temperature:
+    """Converts Temperature units"""
+    units = ['Celsius', 'Fahrenheit', 'Kelvin']
+
+    @classmethod
+    def convert_temperature(cls, source: str, target: str, value: float) -> Optional[float]:
+        source = source.lower()
+        target = target.lower()
+
+        combinations = [
+            (j1.lower(), j2.lower())
+            for j1 in cls.units
+            for j2 in cls.units
+            if j1 != j2
+        ]
+
+        converter = getattr(Converter, f'convert_{source}_to_{target}')
+        if (source, target) in combinations and converter is not None:
+            return converter(value)
+
+        return None
+
+
+class Weight:
+    """Converts Weight units"""
+    units = ['Kilograms', 'Ounces', 'Pounds']
+
+    @classmethod
+    def convert_weight(cls, source: str, target: str, value: float) -> Optional[float]:
+        source = source.lower()
+        target = target.lower()
+
+        combinations = [
+            (j1.lower(), j2.lower())
+            for j1 in cls.units
+            for j2 in cls.units
+            if j1 != j2
+        ]
+
+        converter = getattr(Converter, f'convert_{source}_to_{target}')
+        if (source, target) in combinations and converter is not None:
+            return converter(value)
+
+        return None
+
+
+class DistanceLength:
+    """Converts Distance or Length units"""
+    units = ['Miles', 'Nautical Miles', 'Yards', 'Feet', 'Kilometers', 'Hectometers', 'Meters',
+             'Centimeters', 'Millimeters', 'Inches']
+
+    @classmethod
+    def convert_distance_length(cls, source: str, target: str, value: float) -> Optional[float]:
+        source = source.lower()
+        target = target.lower()
+
+        combinations = [
+            (j1.lower(), j2.lower())
+            for j1 in cls.units
+            for j2 in cls.units
+            if j1 != j2
+        ]
+
+        converter = getattr(Converter, f'convert_{source}_to_{target}')
+        if (source, target) in combinations and converter is not None:
+            return converter(value)
+
+        return None
+
+
+class Energy:
+    """Converts energy units"""
+    units = ['Terajoules', 'Gigajoules', 'Megajoules', 'Kilojoules', 'Joules', 'Kilocalories', 'Calories']
+
+    @classmethod
+    def convert_energy(cls, source: str, target: str, value: float) -> Optional[float]:
+        source = source.lower()
+        target = target.lower()
+
+        combinations = [
+            (j1.lower(), j2.lower())
+            for j1 in cls.units
+            for j2 in cls.units
+            if j1 != j2
+        ]
+
+        converter = getattr(Converter, f'convert_{source}_to_{target}')
+        if (source, target) in combinations and converter is not None:
+            return converter(value)
+
+        return None
+
+
+class Pressure:
+    """Converts pressure units"""
+    units = ['Atmospheres', 'Bars', 'Torr', 'Kilopascals', 'Pascals']
+
+    @classmethod
+    def convert_pressure(cls, source: str, target: str, value: float) -> Optional[float]:
+        source = source.lower()
+        target = target.lower()
+
+        combinations = [
+            (j1.lower(), j2.lower())
+            for j1 in cls.units
+            for j2 in cls.units
+            if j1 != j2
+        ]
+
+        converter = getattr(Converter, f'convert_{source}_to_{target}')
+        if (source, target) in combinations and converter is not None:
+            return converter(value)
+
+        return None
 
 
 class Converter:
     user_value = 0.0
-    converted_value = 0.0
-
-    """Temperature conversion methods"""
-    @staticmethod
-    def convert_celsius_to_fahrenheit(user_value):
-        converted_value = user_value * 9 / 5 + 32
-        return converted_value
+    value = 0.0
 
     @staticmethod
-    def convert_celsius_to_kelvin(user_value):
-        converted_value = user_value + 273.15
-        return converted_value
+    def convert_celsius_to_fahrenheit(value):
+        return value * 9 / 5 + 32
 
     @staticmethod
-    def convert_fahrenheit_to_celsius(user_value):
-        converted_value = (user_value - 32) * 5 / 9
-        return converted_value
+    def convert_celsius_to_kelvin(value):
+        return value + 273.15
 
     @staticmethod
-    def convert_fahrenheit_to_kelvin(user_value):
-        converted_value = (user_value - 32) * 5 / 9 + 273.15
-        return converted_value
+    def convert_fahrenheit_to_celsius(value):
+        return (value - 32) * 5 / 9
 
     @staticmethod
-    def convert_kelvin_to_celsius(user_value):
-        converted_value = user_value - 273.15
-        return converted_value
+    def convert_fahrenheit_to_kelvin(value):
+        return (value - 32) * 5 / 9 + 273.15
 
     @staticmethod
-    def convert_kelvin_to_fahrenheit(user_value):
-        converted_value = (user_value - 273.15) * 9/5 + 32
-        return converted_value
-
-    """Weight Conversion Methods"""
-    @staticmethod
-    def convert_kilogram_to_ounces(user_value):
-        converted_value = user_value / 0.0283495231
-        return converted_value
+    def convert_kelvin_to_celsius(value):
+        return value - 273.15
 
     @staticmethod
-    def convert_kilograms_to_pounds(user_value):
-        converted_value = user_value / 0.45359237
-        return converted_value
+    def convert_kelvin_to_fahrenheit(value):
+        return (value - 273.15) * 9 / 5 + 32
 
     @staticmethod
-    def convert_ounces_to_kilograms(user_value):
-        converted_value = user_value * 0.0283495231
-        return converted_value
+    def convert_kilogram_to_ounces(value):
+        return value / 0.0283495231
 
     @staticmethod
-    def convert_ounces_to_pounds(user_value):
-        converted_value = user_value / 16
-        return converted_value
+    def convert_kilograms_to_pounds(value):
+        return value / 0.45359237
 
     @staticmethod
-    def convert_pounds_to_kilograms(user_value):
-        converted_value = user_value * 0.45359237
-        return converted_value
+    def convert_ounces_to_kilograms(value):
+        return value * 0.0283495231
 
     @staticmethod
-    def convert_pounds_to_ounces(user_value):
-        converted_value = user_value * 16
-        return converted_value
+    def convert_ounces_to_pounds(value):
+        return value / 16
+
+    @staticmethod
+    def convert_pounds_to_kilograms(value):
+        return value * 0.45359237
+
+    @staticmethod
+    def convert_pounds_to_ounces(value):
+        return value * 16
 
     """Distance/Length Conversion Methods"""
+
     @staticmethod
     def convert_miles_to_nautical_miles(user_value):
         converted_value = user_value / 1.15078
