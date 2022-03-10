@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
-from converter import Converter, Temperature, Weight, DistanceLength, Energy, Pressure
+from converter import Temperature, Weight, DistanceLength, Energy, Pressure
 
 
 class GUI:
@@ -63,130 +63,6 @@ class GUI:
                     self.converted_value = value
                 elif value := Pressure.convert_pressure(self.from_unit, self.to_unit, self.user_value_stored):
                     self.converted_value = value
-                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Bars':
-                    self.converted_value = Converter.convert_atmospheres_to_bars(self.user_value_stored)
-                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Torr':
-                    self.converted_value = Converter.convert_atmospheres_to_torr(self.user_value_stored)
-                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Kilopascals':
-                    self.converted_value = Converter.convert_atmospheres_to_kilopascals(self.user_value_stored)
-                elif self.from_unit == 'Atmospheres' and self.to_unit == 'Pascals':
-                    self.converted_value = Converter.convert_atmospheres_to_pascals(self.user_value_stored)
-                elif self.from_unit == 'Bars' and self.to_unit == 'Atmospheres':
-                    self.converted_value = Converter.convert_bars_to_atmospheres(self.user_value_stored)
-                elif self.from_unit == 'Bars' and self.to_unit == 'Torr':
-                    self.converted_value = Converter.convert_bars_to_torr(self.user_value_stored)
-                elif self.from_unit == 'Bars' and self.to_unit == 'Kilopascals':
-                    self.converted_value = Converter.convert_bars_to_kilopascals(self.user_value_stored)
-                elif self.from_unit == 'Bars' and self.to_unit == 'Pascals':
-                    self.converted_value = Converter.convert_bars_to_pascals(self.user_value_stored)
-                elif self.from_unit == 'Torr' and self.to_unit == 'Atmospheres':
-                    self.converted_value = Converter.convert_torr_to_atmospheres(self.user_value_stored)
-                elif self.from_unit == 'Torr' and self.to_unit == 'Bars':
-                    self.converted_value = Converter.convert_torr_to_bars(self.user_value_stored)
-                elif self.from_unit == 'Torr' and self.to_unit == 'Kilopascals':
-                    self.converted_value = Converter.convert_torr_to_kilopascals(self.user_value_stored)
-                elif self.from_unit == 'Torr' and self.to_unit == 'Pascals':
-                    self.converted_value = Converter.convert_torr_to_pascals(self.user_value_stored)
-                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Atmospheres':
-                    self.converted_value = Converter.convert_kilopascals_to_atmospheres(self.user_value_stored)
-                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Bars':
-                    self.converted_value = Converter.convert_kilopascals_to_bars(self.user_value_stored)
-                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Torr':
-                    self.converted_value = Converter.convert_kilopascals_to_torr(self.user_value_stored)
-                elif self.from_unit == 'Kilopascals' and self.to_unit == 'Pascals':
-                    self.converted_value = Converter.convert_kilopascals_to_pascals(self.user_value_stored)
-                elif self.from_unit == 'Pascals' and self.to_unit == 'Atmospheres':
-                    self.converted_value = Converter.convert_pascals_to_atmospheres(self.user_value_stored)
-                elif self.from_unit == 'Pascals' and self.to_unit == 'Bars':
-                    self.converted_value = Converter.convert_pascals_to_bars(self.user_value_stored)
-                elif self.from_unit == 'Pascals' and self.to_unit == 'Torr':
-                    self.converted_value = Converter.convert_pascals_to_torr(self.user_value_stored)
-                elif self.from_unit == 'Pascals' and self.to_unit == 'Kilopascals':
-                    self.converted_value = Converter.convert_pascals_to_kilopascals(self.user_value_stored)
-                elif self.from_unit == 'Terajoules' and self.to_unit == 'Gigajoules':
-                    self.converted_value = Converter.convert_terajoules_to_gigajoules(self.user_value_stored)
-                elif self.from_unit == 'Terajoules' and self.to_unit == 'Megajoules':
-                    self.converted_value = Converter.convert_terajoules_to_megajoules(self.user_value_stored)
-                elif self.from_unit == 'Terajoules' and self.to_unit == 'Kilojoules':
-                    self.converted_value = Converter.convert_terajoules_to_kilojoules(self.user_value_stored)
-                elif self.from_unit == 'Terajoules' and self.to_unit == 'Joules':
-                    self.converted_value = Converter.convert_terajoules_to_joules(self.user_value_stored)
-                elif self.from_unit == 'Terajoules' and self.to_unit == 'Kilocalories':
-                    self.converted_value = Converter.convert_terajoules_to_kilocalories(self.user_value_stored)
-                elif self.from_unit == 'Terajoules' and self.to_unit == 'Calories':
-                    self.converted_value = Converter.convert_terajoules_to_calories(self.user_value_stored)
-                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Terajoules':
-                    self.converted_value = Converter.convert_gigajoules_to_terajoules(self.user_value_stored)
-                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Megajoules':
-                    self.converted_value = Converter.convert_gigajoules_to_megajoules(self.user_value_stored)
-                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Kilojoules':
-                    self.converted_value = Converter.convert_gigajoules_to_kilojoules(self.user_value_stored)
-                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Joules':
-                    self.converted_value = Converter.convert_gigajoules_to_joules(self.user_value_stored)
-                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Kilocalories':
-                    self.converted_value = Converter.convert_gigajoules_to_kilocalories(self.user_value_stored)
-                elif self.from_unit == 'Gigajoules' and self.to_unit == 'Calories':
-                    self.converted_value = Converter.convert_gigajoules_to_calories(self.user_value_stored)
-                elif self.from_unit == 'Megajoules' and self.to_unit == 'Terajoules':
-                    self.converted_value = Converter.convert_megajoules_to_terajoules(self.user_value_stored)
-                elif self.from_unit == 'Megajoules' and self.to_unit == 'Gigajoules':
-                    self.converted_value = Converter.convert_megajoules_to_gigajoules(self.user_value_stored)
-                elif self.from_unit == 'Megajoules' and self.to_unit == 'Kilojoules':
-                    self.converted_value = Converter.convert_megajoules_to_kilojoules(self.user_value_stored)
-                elif self.from_unit == 'Megajoules' and self.to_unit == 'Joules':
-                    self.converted_value = Converter.convert_megajoules_to_joules(self.user_value_stored)
-                elif self.from_unit == 'Megajoules' and self.to_unit == 'Kilocalories':
-                    self.converted_value = Converter.convert_megajoules_to_kilocalories(self.user_value_stored)
-                elif self.from_unit == 'Megajoules' and self.to_unit == 'Calories':
-                    self.converted_value = Converter.convert_megajoules_to_calories(self.user_value_stored)
-                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Terajoules':
-                    self.converted_value = Converter.convert_kilojoules_to_terajoules(self.user_value_stored)
-                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Gigajoules':
-                    self.converted_value = Converter.convert_kilojoules_to_gigajoules(self.user_value_stored)
-                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Megajoules':
-                    self.converted_value = Converter.convert_kilojoules_to_megajoules(self.user_value_stored)
-                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Joules':
-                    self.converted_value = Converter.convert_kilojoules_to_joules(self.user_value_stored)
-                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Kilocalories':
-                    self.converted_value = Converter.convert_kilojoules_to_kilocalories(self.user_value_stored)
-                elif self.from_unit == 'Kilojoules' and self.to_unit == 'Calories':
-                    self.converted_value = Converter.convert_kilojoules_to_calories(self.user_value_stored)
-                elif self.from_unit == 'Joules' and self.to_unit == 'Terajoules':
-                    self.converted_value = Converter.convert_joules_to_terajoules(self.user_value_stored)
-                elif self.from_unit == 'Joules' and self.to_unit == 'Gigajoules':
-                    self.converted_value = Converter.convert_joules_to_gigajoules(self.user_value_stored)
-                elif self.from_unit == 'Joules' and self.to_unit == 'Megajoules':
-                    self.converted_value = Converter.convert_joules_to_megajoules(self.user_value_stored)
-                elif self.from_unit == 'Joules' and self.to_unit == 'Kilojoules':
-                    self.converted_value = Converter.convert_joules_to_kilojoules(self.user_value_stored)
-                elif self.from_unit == 'Joules' and self.to_unit == 'Kilocalories':
-                    self.converted_value = Converter.convert_joules_to_kilocalories(self.user_value_stored)
-                elif self.from_unit == 'Joules' and self.to_unit == 'Calories':
-                    self.converted_value = Converter.convert_joules_to_calories(self.user_value_stored)
-                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Terajoules':
-                    self.converted_value = Converter.convert_kilocalories_to_terajoules(self.user_value_stored)
-                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Gigajoules':
-                    self.converted_value = Converter.convert_kilocalories_to_gigajoules(self.user_value_stored)
-                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Megajoules':
-                    self.converted_value = Converter.convert_kilocalories_to_megajoules(self.user_value_stored)
-                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Kilojoules':
-                    self.converted_value = Converter.convert_kilocalories_to_kilojoules(self.user_value_stored)
-                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Joules':
-                    self.converted_value = Converter.convert_kilocalories_to_joules(self.user_value_stored)
-                elif self.from_unit == 'Kilocalories' and self.to_unit == 'Calories':
-                    self.converted_value = Converter.convert_kilocalories_to_calories(self.user_value_stored)
-                elif self.from_unit == 'Calories' and self.to_unit == 'Terajoules':
-                    self.converted_value = Converter.convert_calories_to_terajoules(self.user_value_stored)
-                elif self.from_unit == 'Calories' and self.to_unit == 'Gigajoules':
-                    self.converted_value = Converter.convert_calories_to_gigajoules(self.user_value_stored)
-                elif self.from_unit == 'Calories' and self.to_unit == 'Megajoules':
-                    self.converted_value = Converter.convert_calories_to_megajoules(self.user_value_stored)
-                elif self.from_unit == 'Calories' and self.to_unit == 'Kilojoules':
-                    self.converted_value = Converter.convert_calories_to_kilojoules(self.user_value_stored)
-                elif self.from_unit == 'Calories' and self.to_unit == 'Joules':
-                    self.converted_value = Converter.convert_calories_to_joules(self.user_value_stored)
-                elif self.from_unit == 'Calories' and self.to_unit == 'Kilocalories':
-                    self.converted_value = Converter.convert_calories_to_kilocalories(self.user_value_stored)
                 self.converted_value = round(self.converted_value, self.accuracy)
                 print(self.converted_value)
                 self.remove_error_highlights()
